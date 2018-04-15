@@ -33,6 +33,7 @@ zstyle ':prezto:load' pmodule \
   'fasd' \
   'homebrew' \
   'android' \
+  'yarn' \
   'environment' \
   'git' \
   'node' \

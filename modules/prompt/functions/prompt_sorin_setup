@@ -130,18 +130,18 @@ function prompt_sorin_setup {
   # Set git-info parameters.
   zstyle ':prezto:module:git:info' verbose 'yes'
   zstyle ':prezto:module:git:info:action' format '%F{7}:%f%%B%F{9}%s%f%%b'
-  zstyle ':prezto:module:git:info:added' format ' %%B%F{2}✚%f%%b'
-  zstyle ':prezto:module:git:info:ahead' format ' %%B%F{13}⬆%f%%b'
-  zstyle ':prezto:module:git:info:behind' format ' %%B%F{13}⬇%f%%b'
+  zstyle ':prezto:module:git:info:added' format ' %%B%F{10}+%f%%b%F{10}%a'
+  zstyle ':prezto:module:git:info:ahead' format ' %%B%F{13}⇧%f%%b %F{13}%A'
+
   zstyle ':prezto:module:git:info:branch' format ' %%B%F{2}%b%f%%b'
   zstyle ':prezto:module:git:info:commit' format ' %%B%F{3}%.7c%f%%b'
-  zstyle ':prezto:module:git:info:deleted' format ' %%B%F{1}✖%f%%b'
-  zstyle ':prezto:module:git:info:modified' format ' %%B%F{4}✱%f%%b'
+  zstyle ':prezto:module:git:info:deleted' format ' %%B%F{196}-%f%%b%F{196}%d'
+  zstyle ':prezto:module:git:info:modified' format ' %%B%F{226}⦿%f%%b %F{226}%m'
   zstyle ':prezto:module:git:info:position' format ' %%B%F{13}%p%f%%b'
-  zstyle ':prezto:module:git:info:renamed' format ' %%B%F{5}➜%f%%b'
-  zstyle ':prezto:module:git:info:stashed' format ' %%B%F{6}✭%f%%b'
-  zstyle ':prezto:module:git:info:unmerged' format ' %%B%F{3}═%f%%b'
-  zstyle ':prezto:module:git:info:untracked' format ' %%B%F{7}◼%f%%b'
+  zstyle ':prezto:module:git:info:renamed' format ' %%B%F{87}→%f%%b%F{87}%r'
+  zstyle ':prezto:module:git:info:stashed' format ' %%B%F{6}⏍%f%%b %F{6}%S'
+  zstyle ':prezto:module:git:info:unmerged' format ' %%B%F{207}⚠%f%%b %F{207}%U'
+  zstyle ':prezto:module:git:info:untracked' format ' %%B%F{243}☆%f%%b %F{243}%u'
   zstyle ':prezto:module:git:info:keys' format \
     'status' '%b %p %c:%s%A%B%S%a%d%m%r%U%u'
 

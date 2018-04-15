@@ -29,6 +29,7 @@ zstyle ':prezto:*:*' color 'yes'
 zstyle ':prezto:load' pmodule \
   'environment' \
   'git' \
+  'osx' \
   'terminal' \
   'editor' \
   'history' \
@@ -104,7 +105,7 @@ zstyle ':prezto:module:history-substring-search:color' not-found '#d01a1a'
 #
 
 # Set the keyword used by `mand` to open man pages in Dash.app
-# zstyle ':prezto:module:osx:man' dash-keyword 'manpages'
+zstyle ':prezto:module:osx:man' dash-keyword 'manpages'
 
 #
 # Pacman

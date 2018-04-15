@@ -31,7 +31,7 @@ if ! zstyle -t ':prezto:module:git:alias' skip 'yes'; then
   alias g='git'
 
   # Branch (b)
-  alias gb='git branch'
+  alias gb='git branch --verbose'
   alias gba='git branch --all --verbose'
   alias gbc='git checkout -b'
   alias gbd='git branch --delete'
@@ -44,20 +44,22 @@ if ! zstyle -t ':prezto:module:git:alias' skip 'yes'; then
   alias gbR='git branch --move --force'
   alias gbs='git show-branch'
   alias gbS='git show-branch --all'
-  alias gbv='git branch --verbose'
-  alias gbV='git branch --verbose --verbose'
+  alias gbv='git branch --verbose --verbose'
   alias gbx='git branch --delete'
   alias gbX='git branch --delete --force'
 
   # Commit (c)
   alias gc='git commit --verbose'
-  alias gca='git commit --verbose --all'
+  alias gca='git commit --amend'
+  alias gcA='git commit --verbose --all'
   alias gcm='git commit --message'
   alias gcS='git commit -S --verbose'
   alias gcSa='git commit -S --verbose --all'
   alias gcSm='git commit -S --message'
   alias gcam='git commit --all --message'
   alias gco='git checkout'
+  alias gcod='git checkout develop'
+  alias gcom='git checkout master'
   alias gcO='git checkout --patch'
   alias gcf='git commit --amend --reuse-message HEAD'
   alias gcSf='git commit -S --amend --reuse-message HEAD'
@@ -67,6 +69,7 @@ if ! zstyle -t ':prezto:module:git:alias' skip 'yes'; then
   alias gcP='git cherry-pick --no-commit'
   alias gcr='git revert'
   alias gcR='git reset "HEAD^"'
+  alias grh='git reset HEAD'
   alias gcs='git show'
   alias gcsS='git show --pretty=short --show-signature'
   alias gcl='git-commit-lost'
@@ -172,6 +175,7 @@ if ! zstyle -t ':prezto:module:git:alias' skip 'yes'; then
 
   # Index (i)
   alias gia='git add'
+  alias ga='gia'
   alias giA='git add --patch'
   alias giu='git add --update'
   alias gid='git diff --no-ext-diff --cached'
@@ -187,11 +191,15 @@ if ! zstyle -t ':prezto:module:git:alias' skip 'yes'; then
   alias gl='git log --topo-order --pretty=format:"${_git_log_medium_format}"'
   alias gls='git log --topo-order --stat --pretty=format:"${_git_log_medium_format}"'
   alias gld='git log --topo-order --stat --patch --full-diff --pretty=format:"${_git_log_medium_format}"'
-  alias glo='git log --topo-order --pretty=format:"${_git_log_oneline_format}"'
+  alias glo='git log --oneline --decorate'
   alias glg='git log --topo-order --all --graph --pretty=format:"${_git_log_oneline_format}"'
   alias glb='git log --topo-order --pretty=format:"${_git_log_brief_format}"'
   alias glc='git shortlog --summary --numbered'
   alias glS='git log --show-signature'
+  alias globurl='noglob urlglobber '
+  alias glog='git log --oneline --decorate --graph'
+  alias glol='git log --graph --pretty='\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --abbrev-commit'
+  alias glola='git log --graph --pretty='\''%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'\'' --abbrev-commit --all'
 
   # Merge (m)
   alias gm='git merge'
@@ -202,6 +210,7 @@ if ! zstyle -t ':prezto:module:git:alias' skip 'yes'; then
 
   # Push (p)
   alias gp='git push'
+  alias gpv='git push --verbose'
   alias gpf='git push --force-with-lease'
   alias gpF='git push --force'
   alias gpa='git push --all'
@@ -209,6 +218,7 @@ if ! zstyle -t ':prezto:module:git:alias' skip 'yes'; then
   alias gpt='git push --tags'
   alias gpc='git push --set-upstream origin "$(git-branch-current 2> /dev/null)"'
   alias gpp='git pull origin "$(git-branch-current 2> /dev/null)" && git push origin "$(git-branch-current 2> /dev/null)"'
+  alias gpsup='git push --set-upstream origin $(git_current_branch)'
 
   # Rebase (r)
   alias gr='git rebase'
@@ -255,14 +265,16 @@ if ! zstyle -t ':prezto:module:git:alias' skip 'yes'; then
   alias gSx='git-submodule-remove'
 
   # Tag (t)
-  alias gt='git tag'
+  alias gt="git tag --format '%(color:yellow)%(*objectname:short) %(align:1,14)%(color:yellow bold)(%(refname:short))%(end)%(color:reset) %(contents:subject) %(color:green)(%(*authordate:format:%h/%d)) %(color:cyan)<%(*authorname)>' --sort=-taggerdate"
   alias gtl='git tag -l'
   alias gts='git tag -s'
-  alias gtv='git verify-tag'
+  alias gTv='git verify-tag'
+  alias gtv='git tag | sort -V'
 
   # Working Copy (w)
   alias gws='git status --ignore-submodules=${_git_status_ignore_submodules} --short'
   alias gwS='git status --ignore-submodules=${_git_status_ignore_submodules}'
+  alias gst='gwS'
   alias gwd='git diff --no-ext-diff'
   alias gwD='git diff --no-ext-diff --word-diff'
   alias gwr='git reset --soft'

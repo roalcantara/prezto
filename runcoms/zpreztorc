@@ -32,6 +32,7 @@ zstyle ':prezto:load' pmodule \
   'docker' \
   'fasd' \
   'homebrew' \
+  'android' \
   'environment' \
   'git' \
   'node' \

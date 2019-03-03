@@ -51,7 +51,8 @@ zstyle ':prezto:load' pmodule \
   'history-substring-search' \
   'prompt' \
   'rails' \
-  'rvm'
+  'rvm' \
+  'gi'
 
 #
 # Autosuggestions

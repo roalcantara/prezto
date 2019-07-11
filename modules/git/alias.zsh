@@ -47,6 +47,10 @@ if ! zstyle -t ':prezto:module:git:alias' skip 'yes'; then
   alias gbv='git branch --verbose --verbose'
   alias gbx='git branch --delete'
   alias gbX='git branch --delete --force'
+  alias gbXm='gbv --delete --force master'
+  alias gbXd='gbv --delete --force develop'
+  alias grm='gbXm && gcoxm'
+  alias grd='gbXd && gcoxd'
 
   # Commit (c)
   alias gc='git commit --verbose'
@@ -60,6 +64,9 @@ if ! zstyle -t ':prezto:module:git:alias' skip 'yes'; then
   alias gco='git checkout'
   alias gcod='git checkout develop'
   alias gcom='git checkout master'
+  alias gcox='gfa && gRp origin && gco'
+  alias gcoxm='gcox master'
+  alias gcoxd='gcox develop'
   alias gcO='git checkout --patch'
   alias gcf='git commit --amend --reuse-message HEAD'
   alias gcSf='git commit -S --amend --reuse-message HEAD'
@@ -189,7 +196,7 @@ if ! zstyle -t ':prezto:module:git:alias' skip 'yes'; then
 
   # Log (l)
   alias gl='git log --topo-order --pretty=format:"${_git_log_medium_format}"'
-  alias gls='git log --topo-order --stat --pretty=format:"${_git_log_medium_format}"'
+  # alias gls='git log --topo-order --stat --pretty=format:"${_git_log_medium_format}"'
   alias gld='git log --topo-order --stat --patch --full-diff --pretty=format:"${_git_log_medium_format}"'
   alias glg='git log --topo-order --all --graph --pretty=format:"${_git_log_oneline_format}"'
   alias glb='git log --topo-order --pretty=format:"${_git_log_brief_format}"'
@@ -208,6 +215,7 @@ if ! zstyle -t ':prezto:module:git:alias' skip 'yes'; then
   alias gmF='git merge --no-ff'
   alias gma='git merge --abort'
   alias gmt='git mergetool'
+  alias gmD='git merge --ff-only develop'
 
   # Push (p)
   alias gp='git push'
@@ -284,4 +292,12 @@ if ! zstyle -t ':prezto:module:git:alias' skip 'yes'; then
   alias gwC='git clean -f'
   alias gwx='git rm -r'
   alias gwX='git rm -rf'
+
+  # Release
+  # gbv --delete --force master
+  # gbv --delete --force develop
+  # gfa && gRp origin && gco develop
+  # gfa && gRp origin && gco master
+  # git merge --ff-only develop
+  # git push
 fi

@@ -56,6 +56,15 @@ path=(
 # Remove -X and -F (exit if the content fits on one screen) to enable it.
 export LESS='-F -g -i -M -R -S -w -X -z-4'
 
+#
+# GitHub
+#
+
+# Set Notification Token
+# more: https://github.com/settings/tokens
+export GITHUB_NOTIFICATIONS_TOKEN=3770d026b38482d8e936341d7d6542df4b9e4a5e
+
+
 # Set the Less input preprocessor.
 # Try both `lesspipe` and `lesspipe.sh` as either might exist on a system.
 if (( $#commands[(i)lesspipe(|.sh)] )); then

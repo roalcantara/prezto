@@ -46,24 +46,26 @@ zstyle ':prezto:load' pmodule \
   'completion' \
   'node' \
   'yarn' \
-  'flutter' \
-  'syntax-highlighting' \
-  'history-substring-search' \
-  'prompt' \
   'rails' \
   'rvm' \
-  'gi'
+  'gi' \
+  'syntax-highlighting' \
+  'history-substring-search' \
+  'prompt'
 
 #
 # Autosuggestions
 #
 
 # Set the query found color.
-# zstyle ':prezto:module:autosuggestions:color' found ''
+zstyle ':prezto:module:autosuggestions:color' found ''
 
 #
 # Completions
 #
+
+# zstyle ':prezto:module:completion:*:nvm'
+# zstyle ':prezto:module:completion:*:git'
 
 # Set the entries to ignore in static */etc/hosts* for host completion.
 # zstyle ':prezto:module:completion:*:hosts' etc-host-ignores \
@@ -134,7 +136,9 @@ zstyle ':prezto:module:osx:man' dash-keyword 'manpages'
 # Set the prompt theme to load.
 # Setting it to 'random' loads a random theme.
 # Auto set to 'off' on dumb terminals.
+# zstyle ':prezto:module:prompt' theme 'pure'
 zstyle ':prezto:module:prompt' theme 'sorin'
+# zstyle ':prezto:module:prompt' theme 'powerlevel10k'
 
 # Set the working directory prompt display length.
 # By default, it is set to 'short'. Set it to 'long' (without '~' expansion)
@@ -194,10 +198,10 @@ zstyle ':prezto:module:syntax-highlighting' highlighters \
   'root'
 
 # Set syntax highlighting styles.
-# zstyle ':prezto:module:syntax-highlighting' styles \
-#   'builtin' 'bg=green' \
-#   'command' 'bg=blue' \
-#   'function' 'bg=red'
+zstyle ':prezto:module:syntax-highlighting' styles \
+  'builtin' 'fg=black,bg=green' \
+  'command' 'fg=black,bg=blue' \
+  'function' 'fg=black,bg=red'
 
 # Set syntax pattern styles.
 zstyle ':prezto:module:syntax-highlighting' pattern \
@@ -242,4 +246,4 @@ zstyle ':prezto:module:terminal' auto-title 'yes'
 # Enabled safe options. This aliases cp, ln, mv and rm so that they prompt
 # before deleting or overwriting files. Set to 'no' to disable this safer
 # behavior.
-# zstyle ':prezto:module:utility' safe-ops 'yes'
+zstyle ':prezto:module:utility' safe-ops 'yes'

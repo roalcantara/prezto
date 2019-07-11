@@ -77,20 +77,20 @@ if is-callable 'dircolors'; then
   # GNU Core Utilities
 
   if zstyle -T ':prezto:module:utility:ls' dirs-first; then
-    alias ls="${aliases[ls]:-ls} --group-directories-first"
+    alias ls="g${aliases[ls]:-ls} --group-directories-first"
   fi
 
   if zstyle -t ':prezto:module:utility:ls' color; then
     # Call dircolors to define colors if they're missing
     if [[ -z "$LS_COLORS" ]]; then
       if [[ -s "$HOME/.dir_colors" ]]; then
-        eval "$(dircolors --sh "$HOME/.dir_colors")"
+        test -e ~/.dir_colors && eval "$(gdircolors -b "$HOME/.dir_colors")"
       else
-        eval "$(dircolors --sh)"
+        eval "$(gdircolors --sh)"
       fi
     fi
 
-    alias ls="${aliases[ls]:-ls} --color=auto"
+    alias ls="${aliases[ls]:-ls} --color=always"
   else
     alias ls="${aliases[ls]:-ls} -F"
   fi
@@ -99,7 +99,8 @@ else
   if zstyle -t ':prezto:module:utility:ls' color; then
     # Define colors for BSD ls if they're not already defined
     if [[ -z "$LSCOLORS" ]]; then
-      export LSCOLORS='exfxcxdxbxGxDxabagacad'
+      export LSCOLORS='GxFxCxDxBxegedabafaced'
+      # export LSCOLORS='exfxfeaeBxxehehbadacea'
     fi
 
     # Define colors for the completion system if they're not already defined

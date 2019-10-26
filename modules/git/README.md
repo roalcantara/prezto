@@ -351,7 +351,7 @@ Theming
 -------
 
 To display information about the current repository in a prompt, define the
-following styles in the `prompt_name_setup` function, where the syntax for
+following styles in the `prompt_$prompt_theme_setup` function, where the syntax for
 setting a style is as follows.
 
 ```sh
@@ -360,26 +360,26 @@ zstyle ':prezto:module:git:info:context:subcontext' format 'string'
 
 ### Main Contexts
 
-| Name      | Format Code | Description
-| --------- | :---------: | ---------------------------------------------------
-| action    |     %s      | Special action name
-| ahead     |     %A      | Commits ahead of remote count
-| behind    |     %B      | Commits behind of remote count
-| branch    |     %b      | Branch name
-| commit    |     %c      | Commit hash
-| position  |     %p      | Commits from the nearest tag count
-| remote    |     %R      | Remote name
-| stashed   |     %S      | Stashed states count
+| Name     | Format Code | Description                        |
+| -------- | :---------: | ---------------------------------- |
+| action   |     %s      | Special action name                |
+| ahead    |     %A      | Commits ahead of remote count      |
+| behind   |     %B      | Commits behind of remote count     |
+| branch   |     %b      | Branch name                        |
+| commit   |     %c      | Commit hash                        |
+| position |     %p      | Commits from the nearest tag count |
+| remote   |     %R      | Remote name                        |
+| stashed  |     %S      | Stashed states count               |
 
 ### Concise Contexts
 
-| Name      | Format Code | Description
-| --------- | :---------: | ---------------------------------------------------
-| clean     |     %C      | Clean state
-| dirty     |     %D      | Dirty files count
-| indexed   |     %i      | Indexed files count
-| unindexed |     %I      | Unindexed files count
-| untracked |     %u      | Untracked files count
+| Name      | Format Code | Description           |
+| --------- | :---------: | --------------------- |
+| clean     |     %C      | Clean state           |
+| dirty     |     %D      | Dirty files count     |
+| indexed   |     %i      | Indexed files count   |
+| unindexed |     %I      | Unindexed files count |
+| untracked |     %u      | Untracked files count |
 
 The following contexts must be enabled with the following zstyle:
 
@@ -389,31 +389,31 @@ zstyle ':prezto:module:git:info' verbose 'yes'
 
 ### Verbose Contexts
 
-| Name      | Format Code | Description
-| --------- | :---------: | ---------------------------------------------------
-| added     |     %a      | Added files count
-| clean     |     %C      | Clean state
-| deleted   |     %d      | Deleted files count
-| dirty     |     %D      | Dirty files count
-| modified  |     %m      | Modified files count
-| renamed   |     %r      | Renamed files count
-| unmerged  |     %U      | Unmerged files count
-| untracked |     %u      | Untracked files count
+| Name      | Format Code | Description           |
+| --------- | :---------: | --------------------- |
+| added     |     %a      | Added files count     |
+| clean     |     %C      | Clean state           |
+| deleted   |     %d      | Deleted files count   |
+| dirty     |     %D      | Dirty files count     |
+| modified  |     %m      | Modified files count  |
+| renamed   |     %r      | Renamed files count   |
+| unmerged  |     %U      | Unmerged files count  |
+| untracked |     %u      | Untracked files count |
 
 ### Special Action Contexts
 
-| Name                 |   Format    | Description
-| -------------------- | :---------: | -----------------------------------------
-| apply                |    value    | Applying patches
-| bisect               |    value    | Binary searching for changes
-| cherry-pick          |    value    | Cherry picking
-| cherry-pick-sequence |    value    | Cherry picking sequence
-| merge                |    value    | Merging
-| rebase               |    value    | Rebasing
-| rebase-interactive   |    value    | Rebasing interactively
-| rebase-merge         |    value    | Rebasing merge
-| revert               |    value    | Reverting
-| revert-sequence      |    value    | Reverting sequence
+| Name                 | Format | Description                  |
+| -------------------- | :----: | ---------------------------- |
+| apply                | value  | Applying patches             |
+| bisect               | value  | Binary searching for changes |
+| cherry-pick          | value  | Cherry picking               |
+| cherry-pick-sequence | value  | Cherry picking sequence      |
+| merge                | value  | Merging                      |
+| rebase               | value  | Rebasing                     |
+| rebase-interactive   | value  | Rebasing interactively       |
+| rebase-merge         | value  | Rebasing merge               |
+| revert               | value  | Reverting                    |
+| revert-sequence      | value  | Reverting sequence           |
 
 First, format the repository state attributes. For example, to format the branch
 and remote names, define the following styles.
@@ -432,7 +432,7 @@ zstyle ':prezto:module:git:info:keys' format \
 ```
 
 Last, add `$git_info[prompt]` to `$PROMPT` and `$git_info[rprompt]` to
-`$RPROMPT` respectively and call `git-info` in the `prompt_name_preexec` hook
+`$RPROMPT` respectively and call `git-info` in the `prompt_[$prompt_theme]_preexec` hook
 function.
 
 Authors

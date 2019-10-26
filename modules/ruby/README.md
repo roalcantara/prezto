@@ -91,13 +91,13 @@ Theming
 -------
 
 To display the name of the current Ruby version in a prompt, define the
-following style in the `prompt_name_setup` function.
+following style in the `prompt_[$prompt_theme]_setup` function.
 
     # %v - ruby version.
     zstyle ':prezto:module:ruby:info:version' format 'version:%v'
 
 Then add `$ruby_info[version]` to `$PROMPT` or `$RPROMPT` and call
-`ruby-info` in the `prompt_name_preexec` hook function.
+`ruby-info` in the `prompt_[$prompt_theme]_preexec` hook function.
 
 Authors
 -------

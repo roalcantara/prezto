@@ -91,7 +91,7 @@ Theming
 -------
 
 To display the name of the current Perl version in a prompt, define the
-following style in the `prompt_name_setup` function.
+following style in the `prompt_[$prompt_theme]_setup` function.
 
 ```sh
 # %v - perl version.
@@ -99,7 +99,7 @@ zstyle ':prezto:module:perl:info:version' format 'version:%v'
 ```
 
 Then add `$perl_info[version]` to `$PROMPT` or `$RPROMPT` and call
-`perl-info` in the `prompt_name_precmd` hook function.
+`perl-info` in the `prompt_[$prompt_theme]_preexec` hook function.
 
 Authors
 -------

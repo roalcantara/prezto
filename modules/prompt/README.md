@@ -39,7 +39,7 @@ Theming
 -------
 
 A prompt theme is an autoloadable function file with a special name,
-`prompt_name_setup`, placed anywhere in `$fpath`, but for the purpose of this
+`prompt_$prompt_theme_setup`, placed anywhere in `$fpath`, but for the purpose of this
 project, themes **should** be placed in the *modules/prompt/functions*
 directory.
 
@@ -55,8 +55,8 @@ set the following variable:
 
 This is to ensure compatibility with outside prompts, while allowing prezto
 and prezto-compatible prompts to take full advantage of the editor module.
-This should be set in the `prompt_name_setup` function after you've added
-any additional hooks with `add-zsh-hook precmd prompt_name_precmd`. See below
+This should be set in the `prompt_[$prompt_theme]_setup` function after you've added
+any additional hooks with `add-zsh-hook precmd prompt_[$prompt_theme]_precmd`. See below
 for additional information about functions and hooks.
 
 ### Theme Functions
@@ -65,7 +65,7 @@ There are three theme functions, a setup function, a help function, and
 a preview function. The setup function **must** always be defined. The help
 function and the preview functions are optional.
 
-#### `prompt_name_setup`
+#### `prompt_[$prompt_theme]_setup`
 
 This function is called by the `prompt` function to install the theme. This
 function may define other functions as necessary to maintain the prompt,
@@ -76,21 +76,21 @@ including a function that displays help or a function used to preview it.
 The most basic example of this function can be seen below.
 
 ```sh
-function prompt_name_setup {
+function prompt_[$prompt_theme]_setup {
   PROMPT='%m%# '
   RPROMPT=''
 }
 ```
 
-#### `prompt_name_help`
+#### `prompt_[$prompt_theme]_help`
 
-If the `prompt_name_setup` function is customizable via parameters, a help
-function **should** be defined. The user will access it via `prompt -h name`.
+If the `prompt_[$prompt_theme]_setup` function is customizable via parameters, a help
+function **should** be defined. The user will access it via `prompt -h $prompt_theme`.
 
 The most basic example of this function can be seen below.
 
 ```sh
-function prompt_name_help {
+function prompt_[$prompt_theme]_help {
   cat <<EOH
 This prompt is color-scheme-able. You can invoke it thus:
 
@@ -101,15 +101,15 @@ EOH
 }
 ```
 
-#### `prompt_name_preview`
+#### `prompt_[$prompt_theme]_preview`
 
-If the `prompt_name_setup` function is customizable via parameters, a preview
-function **should** be defined. The user will access it via `prompt -p name`.
+If the `prompt_[$prompt_theme]_setup` function is customizable via parameters, a preview
+function **should** be defined. The user will access it via `prompt -p $prompt_theme`.
 
 The most basic example of this function can be seen below.
 
 ```sh
-function prompt_name_preview {
+function prompt_[$prompt_theme]_preview {
   if (( $# > 0 )); then
     prompt_preview_theme theme "$@"
   else
@@ -125,7 +125,7 @@ function prompt_name_preview {
 There are many Zsh [hook][2] functions, but mostly the *precmd* hook will be
 used.
 
-#### `prompt_name_precmd`
+#### `prompt_[$prompt_theme]_precmd`
 
 This hook is called before the prompt is displayed and is useful for getting
 information to display in a prompt.
@@ -139,11 +139,20 @@ a function before you calling it.
 The most basic example of this function can be seen below.
 
 ```sh
-function prompt_name_precmd {
+function prompt_[$prompt_theme]_precmd {
   if (( $+functions[git-info] )); then
     git-info
   fi
 }
+```
+
+#### `$prompt_theme`
+
+Is the current prompt theme.
+
+```sh
+~/.zprezto ❯❯❯ echo $prompt_theme
+sorin
 ```
 
 Troubleshooting

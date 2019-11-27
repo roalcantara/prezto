@@ -25,26 +25,7 @@ export CPPFLAGS="-I/usr/local/opt/openssl/include"
 # For pkg-config to find openssl
 export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
 
-# Powerline
-if [ -d "$HOME/Library/Python/3.7/bin" ]; then
-  PATH="$HOME/Library/Python/3.7/bin:$PATH"
-fi
-powerline-daemon -q
-
-POWERLINE_BASH_CONTINUATION=1
-POWERLINE_BASH_SELECT=1
-
-# PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-
-export POWERLINE_HOME=$HOME/Library/Python/3.7/lib/python/site-packages/powerline
-if [ -f "$POWERLINE_HOME/bindings/bash/powerline.sh" ]; then
-  . $POWERLINE_HOME/bindings/bash/powerline.sh
-fi
-
 #  Google Cloud Platform
 #  https://cloud.google.com/sdk/docs/quickstarts
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh

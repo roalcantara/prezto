@@ -28,7 +28,6 @@ zstyle ':prezto:*:*' color 'yes'
 # The order matters.
 zstyle ':prezto:load' pmodule \
   'archive' \
-  'autosuggestions' \
   'docker' \
   'fasd' \
   'homebrew' \
@@ -51,6 +50,7 @@ zstyle ':prezto:load' pmodule \
   'gi' \
   'syntax-highlighting' \
   'history-substring-search' \
+  'autosuggestions' \
   'prompt'
 
 #
@@ -58,14 +58,11 @@ zstyle ':prezto:load' pmodule \
 #
 
 # Set the query found color.
-zstyle ':prezto:module:autosuggestions:color' found ''
+zstyle ':prezto:module:autosuggestions:color' found '#99D46E'
 
 #
 # Completions
 #
-
-# zstyle ':prezto:module:completion:*:nvm'
-# zstyle ':prezto:module:completion:*:git'
 
 # Set the entries to ignore in static */etc/hosts* for host completion.
 # zstyle ':prezto:module:completion:*:hosts' etc-host-ignores \

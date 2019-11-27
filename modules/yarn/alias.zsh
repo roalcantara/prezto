@@ -11,6 +11,7 @@
 
 alias y='yarn'
 alias ya='yarn add'
+alias yag='yarn global add'
 alias yb='yarn build'
 alias yl='yarn lint'
 alias yt='yarn test'

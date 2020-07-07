@@ -41,6 +41,8 @@ zstyle ':prezto:load' pmodule \
   'history-substring-search' \
   'autosuggestions' \
   'git' \
+  'homebrew' \
+  'ruby' \
   'zprezto' \
   'puts' \
   'heroku' \

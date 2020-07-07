@@ -57,3 +57,8 @@ function hb_deprecated {
 
   command brew "${cmd}" "${=cmd_args}"
 }
+
+alias brewU='brew update && brew upgrade && brew upgrade --cask && brew cleanup && brew doctor'
+
+# Source module files.
+source "${0:h}/ruby.zsh"

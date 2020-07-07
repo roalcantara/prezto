@@ -46,6 +46,7 @@ zstyle ':prezto:load' pmodule \
   'heroku' \
   'gi' \
   'fzf' \
+  'zenv' \
   'prompt'
 
 #

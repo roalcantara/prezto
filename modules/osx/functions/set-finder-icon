@@ -1,0 +1,24 @@
+#
+# Set finder Icon
+#
+# Authors:
+#   @roalcantara <rogerio.alcantara@gmail.com>
+#
+
+# set-finder-icon path/to/Icon.icns path/to/file.ext
+# function set-finder-icon {
+  # Create temporary resource file which points to tmpicons.icns:
+  echo "read 'icns' (-16455) \"$1\";" > tmpicns.rsrc
+
+  # append this resource to the file you want to icon-ize.
+  Rez -a tmpicns.rsrc -o "$2"$'/Icon\r'
+
+  # Use the resource to set the icon.
+  SetFile -a C $2
+
+  # Hide the Icon\r file from Finder.
+  SetFile -a V "$2"$'/Icon\r'
+
+  # Clean up
+  rm tmpicns.rsrc
+# }

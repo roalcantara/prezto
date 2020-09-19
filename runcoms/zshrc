@@ -5,6 +5,13 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+# ZSH Profilling
+# https://medium.com/tarkalabs/optimize-zsh-fce424fcfd5
+# http://zsh.sourceforge.net/Doc/Release/Zsh-Modules.html#The-zsh_002fzprof-Module
+if [[ "$ZPROF" = true ]]; then
+  zmodload zsh/zprof
+fi
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
@@ -30,3 +37,9 @@ fi
 # https://sw.kovidgoyal.net/kitty/#zsh
 #
 kitty + complete setup zsh | source /dev/stdin
+
+# profilling
+#
+if [[ "$ZPROF" = true ]]; then
+  zprof
+fi

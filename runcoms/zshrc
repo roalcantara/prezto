@@ -11,3 +11,22 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+
+# The configuration files are read in the following order:
+#
+#   01. /etc/zshenv
+#   02. ~/.zshenv
+#   03. /etc/zprofile
+#   04. ~/.zprofile
+#   05. /etc/zshrc
+#   06. ~/.zshrc
+#   07. ~/.zpreztorc
+#   08. /etc/zlogin
+#   09. ~/.zlogin
+#   10. ~/.zlogout
+#   11. /etc/zlogout
+
+# kitty
+# https://sw.kovidgoyal.net/kitty/#zsh
+#
+kitty + complete setup zsh | source /dev/stdin

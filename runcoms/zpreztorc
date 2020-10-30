@@ -56,7 +56,6 @@ zstyle ':prezto:load' pmodule \
   'exa' \
   'zprof' \
   'dotfiles' \
-  'asdf' \
   'prompt'
 
 #
